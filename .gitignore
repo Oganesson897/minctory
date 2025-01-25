@@ -5,8 +5,11 @@ build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-/.idea/*
 *.iml
+*.ipr
+*.iws
+*.xml
+
 
 ### Eclipse ###
 .apt_generated
