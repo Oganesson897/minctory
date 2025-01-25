@@ -19,6 +19,30 @@ public class Printer {
     public String asking(String message) {
         print(message);
         print("> ");
+        return nextLine();
+    }
+
+    public int askingInt(String message) {
+        print(message);
+        print("> ");
+        if (scanner.hasNextInt()) {
+            return scanner.nextInt();
+        } else {
+            MinctoryLogger.LOGGER_MAIN.error("Invalid input.");
+            return -1;
+        }
+    }
+
+    public boolean enter(String message) {
+        print(message);
+        print("> ");
+        return nextLine().isEmpty();
+    }
+
+    private String nextLine() {
+        if (scanner.nextLine().equals("exit")) {
+            System.exit(0);
+        }
         return scanner.nextLine();
     }
 

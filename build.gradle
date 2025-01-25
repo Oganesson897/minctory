@@ -55,6 +55,13 @@ spotless {
     }
 }
 
+repositories {
+    maven {
+        url 'http://maven.snowlyicewolf.club/'
+        allowInsecureProtocol = true
+    }
+}
+
 dependencies {
     // Annotation
     implementation 'org.jetbrains:annotations:24.0.0'
@@ -62,6 +69,7 @@ dependencies {
     // Parser
     implementation 'io.hotmoka:toml4j:0.7.3' // TOML
     implementation 'com.google.code.gson:gson:2.11.0' // JSON
+    implementation "club.someoneice.json:amarok-json-for-java:1.7.3" // JSON
 
     // Logger
     implementation 'org.apache.logging.log4j:log4j-api:2.24.3'
