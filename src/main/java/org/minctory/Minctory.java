@@ -25,6 +25,10 @@ public class Minctory {
         printer.print("Detecting data...");
         SaveDetector.detect();
         SaveDetector.saveSelect(printer);
+
+        if (currentSave != null) {
+            printer.print("Loading save...");
+        }
     }
 
     public void save() {

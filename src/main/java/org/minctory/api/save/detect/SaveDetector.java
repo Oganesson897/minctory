@@ -3,6 +3,7 @@ package org.minctory.api.save.detect;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import org.minctory.Minctory;
 import org.minctory.api.save.Save;
+import org.minctory.api.utils.MapUtils;
 import org.minctory.api.utils.logger.Printer;
 import org.minctory.api.utils.parsers.JSONParser;
 
@@ -15,6 +16,14 @@ public class SaveDetector {
     private static final File SAVES_DIR = new File(Minctory.DATA_DIR, "saves");
     private static final File INFO = new File(SAVES_DIR, "info.json");
     public static final Object2ObjectOpenHashMap<UUID, Save> SAVES = new Object2ObjectOpenHashMap<>();
+
+    public static File getSaveDir(Save save) {
+        return new File(SAVES_DIR, MapUtils.getKeyByValue(SAVES, save).toString());
+    }
+
+    public static File getSaveDir() {
+        return getSaveDir(Minctory.INSTANCE.currentSave);
+    }
 
     @SuppressWarnings("unchecked")
     public static void detect() {
@@ -53,7 +62,7 @@ public class SaveDetector {
         } else {
             printer.print("%s saves detected.".formatted(SAVES.size()));
             List<Save> sortedSave = new ArrayList<>(SAVES.values());
-            sortedSave.sort(Comparator.comparingLong(Save::lastPlay));
+            sortedSave.sort(Comparator.comparingLong(Save::getLastPlay));
             for (Save save : sortedSave) {
                 printer.print("No.%s | %s".formatted(sortedSave.indexOf(save), save.toString()));
             }

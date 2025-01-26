@@ -8,7 +8,7 @@ import java.util.UUID;
 public record SaveInfo(UUID uuid, Save save) {
 
     public Map<String, Object> toMap() {
-        return Map.of(uuid.toString(), Map.of("name", save.name(), "lastPlay", save.lastPlay()));
+        return Map.of(uuid.toString(), Map.of("name", save.getName(), "lastPlay", save.getLastPlay()));
     }
 
 }

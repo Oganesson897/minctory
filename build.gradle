@@ -21,7 +21,7 @@ java {
 }
 
 launch4j {
-    mainClassName = 'org.minctory.Main'
+    mainClassName = 'org.minctory.Bootstrap'
     jvmOptions = [
             '-Dfile.encoding=UTF-8',
             '--add-opens',
@@ -57,7 +57,7 @@ spotless {
 
 repositories {
     maven {
-        url 'http://maven.snowlyicewolf.club/'
+        url 'https://maven.snowlyicewolf.club/'
         allowInsecureProtocol = true
     }
 }
@@ -70,6 +70,7 @@ dependencies {
     implementation 'io.hotmoka:toml4j:0.7.3' // TOML
     implementation 'com.google.code.gson:gson:2.11.0' // JSON
     implementation "club.someoneice.json:amarok-json-for-java:1.7.3" // JSON
+    implementation 'com.opencsv:opencsv:5.7.1' // CSV
 
     // Logger
     implementation 'org.apache.logging.log4j:log4j-api:2.24.3'
